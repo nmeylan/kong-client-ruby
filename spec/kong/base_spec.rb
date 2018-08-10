@@ -73,11 +73,10 @@ describe Kong::Base do
       expect(result.is_a?(Klass)).to be_truthy
     end
 
-    it 'returns nil if resource is not found' do
+    it 'raises a not found error when no data was found' do
       allow(Kong::Client.instance).to receive(:get).with('/resources/123456')
-                                          .and_return(nil)
-      result = subject.get('123456')
-      expect(result).to be_nil
+                                          .and_raise(Kong::Error.new(404, "Not found"))
+      expect {subject.get('123456')}.to raise_error(Kong::Error)
     end
   end
 

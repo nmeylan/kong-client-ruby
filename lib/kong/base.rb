@@ -89,8 +89,7 @@ module Kong
     def get(key = nil)
       key = self.id if key.nil?
       path = @api_end_point + key
-      response = client.get(path) rescue nil
-      return nil if response.nil?
+      response = client.get(path)
       init_attributes(response)
       self
     end
