@@ -1,3 +1,4 @@
+# Forked from [https://github.com/kontena/kong-client-ruby](https://github.com/kontena/kong-client-ruby)
 # Kong Client for Ruby
 
 [Kong](http://getkong.org) API client for Ruby
@@ -8,15 +9,15 @@
 ## Installation
 Add this line to your application's Gemfile:
 
-    gem 'kong'
+    gem 'kong', git: "https://github.com/nmeylan/kong-client-ruby.git"
 
 And then execute:
 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install kong
+    
+## What differ from original repo
+* Add kong 0.14 support
+* Better error management
 
 ## Usage
 

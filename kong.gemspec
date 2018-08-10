@@ -6,7 +6,7 @@ require 'kong/version'
 Gem::Specification.new do |spec|
   spec.name          = "kong"
   spec.version       = Kong::VERSION
-  spec.authors       = ["Lauri Nevala"]
+  spec.authors       = ["Lauri Nevala", "Nicolas Meylan"]
   spec.email         = ["lauri@kontena.io"]
   spec.summary       = %q{A Ruby client for the Kong API }
   spec.description   = %q{A Ruby client for the Kong API}
