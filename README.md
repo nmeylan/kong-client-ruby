@@ -13,7 +13,7 @@ And then execute:
     $ bundle
     
 ## What differ from original repo
-* Add kong 0.14 support
+* Add kong 1.0 support
 * Better error management
 
 ## Usage

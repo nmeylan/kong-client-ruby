@@ -1,3 +1,6 @@
+# 1.0.0
+- Kong 1.0 support
+  - Change request body for API belonging to consumers
 # 0.3.1 (2017-10-02)
 - Use consumer id to retrieve auth keys and tokens ([#19](https://github.com/kontena/kong-client-ruby/pull/19))
 - Add methods to kong api base attributes ([#21](https://github.com/kontena/kong-client-ruby/pull/21))

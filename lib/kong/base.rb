@@ -83,6 +83,11 @@ module Kong
       Client.instance
     end
 
+    # Get attributes to send to the API
+    # @return [Hash]
+    def api_attributes
+      attributes
+    end
 
     # Get resource
     # @param [String] key
@@ -111,7 +116,7 @@ module Kong
     # Create resource
     def create
       headers = { 'Content-Type' => 'application/json' }
-      response = client.post(@api_end_point, attributes, nil, headers)
+      response = client.post(@api_end_point, api_attributes, nil, headers)
       init_attributes(response)
       self
     end
@@ -120,7 +125,7 @@ module Kong
     # Data is sent to Kong in JSON format and HTTP PUT request is used
     def create_or_update
       headers = { 'Content-Type' => 'application/json' }
-      response = client.put("#{@api_end_point}", attributes, nil, headers)
+      response = client.put("#{@api_end_point}", api_attributes, nil, headers)
       init_attributes(response)
       self
     end
@@ -128,7 +133,7 @@ module Kong
     # Update resource
     def update
       headers = { 'Content-Type' => 'application/json' }
-      response = client.patch("#{@api_end_point}#{self.id}", attributes, nil, headers)
+      response = client.patch("#{@api_end_point}#{self.id}", api_attributes, nil, headers)
       init_attributes(response)
       self
     end

@@ -7,6 +7,11 @@ module Kong
       self.api_end_point = "/consumers/#{self.consumer_id}#{self.class::API_END_POINT}" if self.consumer_id
     end
 
+    # Get attributes to send to the API
+    def api_attributes
+      attributes.select{|key, _| key != "consumer_id"}
+    end
+
     # Get Consumer resource
     # @return [Kong::Consumer]
     def consumer

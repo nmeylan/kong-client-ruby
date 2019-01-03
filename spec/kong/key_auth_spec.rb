@@ -23,4 +23,15 @@ describe Kong::KeyAuth do
       expect(subject.api_end_point).to eq('/consumers/:consumer_id/key-auth/')
     end
   end
+
+  describe '#create' do
+    it 'remove consumer_id from request body' do
+      headers = {'Content-Type' => 'application/json'}
+      attributes = {'consumer_id' => 'aaaaaaaa-aaaa-4aaa-aaaa-aaaaaaaaaaaa', 'key' => 'bbbbbbbb-bbbb-4bbb-bbbb-bbbbbbbbbbbb'}
+      api_attributes = {'key' => 'bbbbbbbb-bbbb-4bbb-bbbb-bbbbbbbbbbbb'}
+      expect(Kong::Client.instance).to receive(:post).with('/consumers/aaaaaaaa-aaaa-4aaa-aaaa-aaaaaaaaaaaa/key-auth/', api_attributes, nil, headers).and_return(attributes)
+      subject = described_class.new(attributes)
+      subject.create
+    end
+  end
 end
